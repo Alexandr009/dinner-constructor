@@ -1,4 +1,5 @@
 package ru.practicum.dinner;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,21 +59,20 @@ public class Main {
 
         while (flag) {
             String nextItem = scanner.nextLine();
-            if (nextItem.isEmpty() == true){
+            if (nextItem.isEmpty()) {
                 flag = false;
                 break;
             }
-                boolean check = dc.checkType(nextItem);
-                if (check == true){
-                    dishTypeList.add(nextItem);
-                }else {
-                    System.out.println("Извените, такого типы блюда нет в меню");
-                }
+            boolean check = dc.checkType(nextItem);
+            if (check) {
+                dishTypeList.add(nextItem);
+            } else {
+                System.out.println("Извените, такого типы блюда нет в меню. Введите другой тип.");
             }
+        }
 
-        // сгенерируйте комбинации блюд и выведите на экран
-        HashMap<String,ArrayList<String>> newCombo = dc.generateDishCombo(numberOfCombos, dishTypeList);
-        for (String item:newCombo.keySet()) {
+        HashMap<String, ArrayList<String>> newCombo = dc.generateDishCombo(numberOfCombos, dishTypeList);
+        for (String item : newCombo.keySet()) {
             System.out.println(item);
             System.out.println(newCombo.get(item));
         }
