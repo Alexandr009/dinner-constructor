@@ -6,11 +6,11 @@ import java.util.HashMap;
 
 public class Main {
 
-    static DinnerConstructor dc;
+    static DinnerConstructor dinnerConstructor;
     static Scanner scanner;
 
     public static void main(String[] args) {
-        dc = new DinnerConstructor();
+        dinnerConstructor = new DinnerConstructor();
         scanner = new Scanner(System.in);
 
         while (true) {
@@ -42,7 +42,7 @@ public class Main {
         String dishType = scanner.nextLine();
         System.out.println("Введите название блюда:");
         String dishName = scanner.nextLine();
-        dc.addNewDish(dishType, dishName);
+        dinnerConstructor.addNewDish(dishType, dishName);
     }
 
     private static void generateDishCombo() {
@@ -63,7 +63,7 @@ public class Main {
                 flag = false;
                 break;
             }
-            boolean check = dc.checkType(nextItem);
+            boolean check = dinnerConstructor.checkType(nextItem);
             if (check) {
                 dishTypeList.add(nextItem);
             } else {
@@ -71,7 +71,7 @@ public class Main {
             }
         }
 
-        HashMap<String, ArrayList<String>> newCombo = dc.generateDishCombo(numberOfCombos, dishTypeList);
+        HashMap<String, ArrayList<String>> newCombo = dinnerConstructor.generateDishCombo(numberOfCombos, dishTypeList);
         for (String item : newCombo.keySet()) {
             System.out.println(item);
             System.out.println(newCombo.get(item));

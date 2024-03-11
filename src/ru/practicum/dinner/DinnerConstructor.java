@@ -6,12 +6,12 @@ import java.util.Random;
 
 public class DinnerConstructor {
     HashMap<String, ArrayList<String>> menuList;
-    Random rnd = new Random();
+    Random random = new Random();
 
     DinnerConstructor() {
 
         menuList = new HashMap<>();
-        rnd = new Random();
+        random = new Random();
     }
 
     void addNewDish(String dishType, String dishName) {
@@ -36,7 +36,7 @@ public class DinnerConstructor {
                 if (dishTypeList.contains(key)) {
                     ArrayList<String> dishList = menuList.get(key);
 
-                    int number = rnd.nextInt(dishList.size());
+                    int number = random.nextInt(dishList.size());
 
                     String dischName = dishList.get(number);
                     listForCombo.add(dischName);
